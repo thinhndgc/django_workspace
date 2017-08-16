@@ -22,7 +22,7 @@ def user_page(request, username):
         user = User.objects.get(username=username)
     except:
         raise Http404('Request user not found!')
-    bookmarks = user.bookmarks_set.all()
+    bookmarks = user.bookmark_set.all()
     template = get_template('user_page.html')
     variables = Context(
         {

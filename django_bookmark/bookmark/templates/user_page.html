@@ -4,16 +4,16 @@
     </head>
     <body>
         <h1>Bookmarks for {{username}}</h1>
-        {% if bookmarks %}
+       {% if bookmarks %}
             <ul>
-                {{% for bm in bookmarks %}}
+                {% for bm in bookmarks %}
                     <li>
                         <a href="{{bm.link.url}}">{{bm.title}}</a>
                     </li>
-                {{% endfor %}}
+                {% endfor %}
             </ul>
-        {{% else %}}
+        {% else %}
             <p>No bookmarks found!</p>
-        {% end if %}
+        {% endif %}
     </body>
 </html>
