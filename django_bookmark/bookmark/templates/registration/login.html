@@ -1,14 +1,14 @@
-<html>
-    <head>
-        <title>Django bookmark - Login</title>
-    </head>
-    <body>
-        <h1>User login</h1>
-        {% if form.has_errors %}
-            <p>Your account details did'nt match!
-                Please try again!
-            </p>
-        {% endif %}
+{% extends "base.html" %}
+{% block title %}
+    Login
+{% endblock %}
+{% block head %}
+    User login
+{% endblock %}
+{% block content %}
+    {% if form.has_errors %}
+        <p>Your account details did'nt match! Please try again!</p>
+    {% endif %}
         <form action="." method="post">
             {% csrf_token %}
             <p>
@@ -22,5 +22,4 @@
             <input type="hidden" name="next" value="/bookmark/"/>
             <input type="submit" value="Login"/>
         </form>
-    </body>
-</html>
+{% endblock %}
