@@ -5,6 +5,8 @@ from django.template.loader import get_template
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
 # Create your views here.
 # @ensure_csrf_cookie
 # @login_required(login_url='/bookmark/login/')
@@ -30,3 +32,7 @@ def user_page(request, username):
     )
     output = template.render(variables)
     return HttpResponse(output)
+
+def log_out(request):
+    logout(request)
+    return HttpResponseRedirect('/bookmark/login/')

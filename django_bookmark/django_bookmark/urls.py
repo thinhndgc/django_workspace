@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^bookmark/$', main_page),
     url(r'^bookmark/user/(\w+)/$', user_page),
     url(r'^bookmark/login/$', 'django.contrib.auth.views.login'),
+    url(r'^bookmark/logout/$', log_out),    
 )
