@@ -7,6 +7,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
+from django.template import RequestContext
 # Create your views here.
 # @ensure_csrf_cookie
 # @login_required(login_url='/bookmark/login/')
@@ -14,7 +15,7 @@ def main_page(request):
     print(request.user.username)
     return render_to_response(
         'main_page.html',
-        {'user': request.user}
+        RequestContext(request)
     )
 
 def user_page(request, username):
@@ -23,15 +24,14 @@ def user_page(request, username):
     except:
         raise Http404('Request user not found!')
     bookmarks = user.bookmark_set.all()
-    template = get_template('user_page.html')
-    variables = Context(
-        {
+    variables = RequestContext(
+        request, {
             'username': username,
             'bookmarks': bookmarks
         }
     )
-    output = template.render(variables)
-    return HttpResponse(output)
+    template = get_template('user_page.html')
+    return render_to_response('user_page.html', variables)
 
 def log_out(request):
     logout(request)

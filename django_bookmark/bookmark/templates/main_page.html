@@ -7,7 +7,7 @@
 {% endblock %}
 {% block content %}
     {% if user.username %}
-        <p>Welcome {{user.username}}!  | <a href="/bookmark/logout/">Logout</a></p> Here you can store bookmarks!
+        <p>Welcome {{user.username}}!</p> Here you can store bookmarks!
     {% else %}
         <p>Welcome anonymous user! You need to <a href="/bookmark/login/">Login</a> before you can store and share bookmarks.</p>
     {% endif %}
