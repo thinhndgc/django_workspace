@@ -9,7 +9,7 @@ static = os.path.join(
     os.path.dirname(__file__), 'static'
 )
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'django_bookmark.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
@@ -20,4 +20,4 @@ urlpatterns = patterns('',
     url(r'^bookmark/login/$', 'django.contrib.auth.views.login'),
     url(r'^bookmark/logout/$', log_out),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static}),
-)
+]

@@ -6,9 +6,11 @@
     </head>
     <body>
         <div id="nav">
-            <a href="/bookmark/">Home</a>
+            {% if not user.is_authenticated %}
+                <a href="/bookmark/">Home</a> |
+            {% endif %}
             {% if user.is_authenticated %}
-                Welcome {{user.username}} | <a href="/bookmark/logout/">Logout</a>
+                Welcome {{user.username}} | <a href="/bookmark/">Home</a> | <a href="/bookmark/logout/">Logout</a>
             {% else %}
                 <a href="/bookmark/login/">Login</a>
             {% endif %}
