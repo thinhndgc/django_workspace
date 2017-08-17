@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^bookmark/login/$', 'django.contrib.auth.views.login'),
     url(r'^bookmark/logout/$', log_out),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static}),
+    url(r'^bookmark/register/$', register_page)
 ]
