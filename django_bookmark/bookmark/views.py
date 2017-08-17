@@ -44,7 +44,7 @@ def register_page(request):
                 password = form.cleaned_data['password1'],
                 email = form.cleaned_data['email']
             )
-            return HttpResponseRedirect('/bookmark/login/')
+            return HttpResponseRedirect('/bookmark/register/success/')
     else:
         form = RegistrationForm()
 

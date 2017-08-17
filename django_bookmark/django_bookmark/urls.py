@@ -1,5 +1,6 @@
-from django.conf.urls import patterns, include, url
 import os.path
+from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 from django.contrib import admin
 from bookmark.views import *
 
@@ -20,5 +21,6 @@ urlpatterns = [
     url(r'^bookmark/login/$', 'django.contrib.auth.views.login'),
     url(r'^bookmark/logout/$', log_out),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static}),
-    url(r'^bookmark/register/$', register_page)
+    url(r'^bookmark/register/$', register_page),
+    url(r'^bookmark/register/success/$', TemplateView.as_view(template_name='registration/register_success.html'), name = "regiser_success")
 ]
